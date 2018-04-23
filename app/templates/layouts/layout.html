@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Head block -->
+    {% block head %}
+    <title>{% block title %}site{% endblock %}</title>
+    {% endblock %}
+
+    <link rel="shortcut icon" href="">
+
+    <!-- Semantic UI and jQuery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+
+    <!-- Push padding -->
+    <style>
+        .pusher {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- Hidden menu -->
+<div class="ui inverted labeled icon left inline vertical menu sidebar uncover mobile only grid">
+
+
+</div>
+<!-- Top menu -->
+<div class="ui basic labeled top fixed menu inverted {% if sell %}inverted sell{% elif buy %}inverted buy{% else %}{% endif %}">
+    <div class="item ui mobile only grid" id="toggle">
+        <i class="sidebar icon"></i>
+    </div>
+    <a href="/">
+        <div class="item header">site name</div>
+    </a>
+    {% if session.get('is_admin') %}
+    <a href="" class="ui item"><i class="dashboard icon"></i>Admin</a>
+    {% endif %}
+    <!--<div class="ui right menu computer tablet only grid">-->
+    <!--<a href="mailto:contact@transaffaires.ca" class="ui right item"><i class="talk icon"></i>contact</a>-->
+    <!--<div class="ui dropdown item">-->
+    <!--lang <i class="dropdown icon"></i>-->
+    <!--<div class="menu">-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="ui dropdown item">-->
+    <!--<i class="settings icon"></i><i class="dropdown icon"></i>-->
+    <!--<div class="menu">-->
+    <!--{% if session['is_logged'] %}-->
+    <!--{% else %}-->
+    <!--<a href="/users/login" class="ui item"><i class="sign in icon"></i>login</a>-->
+    <!--<a href="/users/signup" class="ui item"><i class="add user icon"></i>signup</a>-->
+    <!--{% endif %}-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+
+<!-- CONTENT -->
+
+<div class="pusher">
+
+    <div class="ui container">
+        {% include "layouts/_messages.html" %}
+    </div>
+
+    {% block body %}
+
+    <!-- BODY COMES HERE  -->
+
+    {% endblock %}
+
+</div>
+
+<!-- FOOTER -->
+<div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+        {#
+        <div class="ui stackable inverted divided grid">#}
+            {#
+            <div class="three wide column">#}
+                {# <h4 class="ui inverted header">For Sellers</h4>#}
+                {#
+                <div class="ui inverted link list">#}
+                    {# <a href="#" class="item">Link One</a>#}
+                    {# <a href="#" class="item">Link Two</a>#}
+                    {# <a href="#" class="item">Link Two</a>#}
+                    {#
+                </div>
+                #}
+                {#
+            </div>
+            #}
+            {#
+            <div class="three wide column">#}
+                {# <h4 class="ui inverted header">For Buyers</h4>#}
+                {#
+                <div class="ui inverted link list">#}
+                    {# <a href="#" class="item">Link One</a>#}
+                    {# <a href="#" class="item">Link Two</a>#}
+                    {# <a href="#" class="item">Link Two</a>#}
+                    {#
+                </div>
+                #}
+                {#
+            </div>
+            #}
+            {#
+            <div class="three wide column">#}
+                {# <h4 class="ui inverted header">For Pros</h4>#}
+                {#
+                <div class="ui inverted link list">#}
+                    {# <a href="#" class="item">Link One</a>#}
+                    {# <a href="#" class="item">Link Two</a>#}
+                    {# <a href="#" class="item">Link Two</a>#}
+                    {#
+                </div>
+                #}
+                {#
+            </div>
+            #}
+            {#
+            <div class="seven wide column">#}
+                {# <h4 class="ui inverted header">BizTrasnfer.ca</h4>#}
+                {# <p>BizTrasnfer is a web application that build links between business owners#}
+                    {# who want to sell their businesses and investors.</p>#}
+                {# <a href="#" class="ui">Show me how this works</a>#}
+                {#
+            </div>
+            #}
+            {#
+        </div>
+        #}
+        {#
+        <div class="ui inverted section divider"></div>
+        #}
+        <!-- <img src="static/img/logo.png" class="ui centered mini image"> -->
+        <div class="ui horizontal inverted small divided link list">
+            Copyright <i class="ui icon copyright"></i> 2018 ShareABook<br>
+            {# <a class="item" href="#">Site Map</a>#}
+            {# <a class="item" href="#">Contact Us</a>#}
+            {# <a class="item" href="#">Terms and Conditions</a>#}
+            {# <a class="item" href="#">Privacy Policy</a>#}
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#toggle').click(function () {
+        $('.ui.sidebar').sidebar('toggle');
+    });
+</script>
+
+<script>
+    $('.ui.dropdown')
+        .dropdown();
+</script>
+
+</body>
+</html>
