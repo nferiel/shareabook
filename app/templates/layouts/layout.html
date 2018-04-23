@@ -29,13 +29,13 @@
 
 
 </div>
-<!-- Top menu -->
-<div class="ui basic labeled top fixed menu inverted {% if sell %}inverted sell{% elif buy %}inverted buy{% else %}{% endif %}">
+Top menu
+<div class="ui basic labeled top fixed green menu inverted">
     <div class="item ui mobile only grid" id="toggle">
         <i class="sidebar icon"></i>
     </div>
     <a href="/">
-        <div class="item header">site name</div>
+        <div class="item header">Share A Book</div>
     </a>
     {% if session.get('is_admin') %}
     <a href="" class="ui item"><i class="dashboard icon"></i>Admin</a>
@@ -149,16 +149,6 @@
     </div>
 </div>
 
-<script>
-    $('#toggle').click(function () {
-        $('.ui.sidebar').sidebar('toggle');
-    });
-</script>
-
-<script>
-    $('.ui.dropdown')
-        .dropdown();
-</script>
 
 </body>
 </html>
