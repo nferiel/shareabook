@@ -8,6 +8,6 @@ def index():
     return render_template('index.html')
 
 
-@main.route('info')
+@main.route('/info')
 def info():
     return 'info'
