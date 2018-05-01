@@ -13,3 +13,9 @@ class User(db.DynamicDocument):
     lastname = db.StringField(default='')
 
     meta = {'collection': 'users'}
+
+
+class Book(db.DynamicDocument):
+    isbn = db.StringField(required=True)
+
+    meta = {'collection': 'books'}
